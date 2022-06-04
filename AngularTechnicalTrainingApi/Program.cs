@@ -1,4 +1,5 @@
 using AngularTechnicalTrainingApi.Data;
+using AngularTechnicalTrainingApi.Data.GenericRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,10 @@ var connectionString = builder.Configuration.GetConnectionString("sqlConnection"
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddControllers();
+
+//dependency injections
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
