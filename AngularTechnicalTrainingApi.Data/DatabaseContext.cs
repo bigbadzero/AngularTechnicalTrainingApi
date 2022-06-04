@@ -14,6 +14,7 @@ namespace AngularTechnicalTrainingApi.Data
     {}
     DbSet<AssetType> AssetTypes { get; set; }
     DbSet<Employee> Employees { get; set; }
+    DbSet<Asset> Assets { get; set; }
 }
     
 
