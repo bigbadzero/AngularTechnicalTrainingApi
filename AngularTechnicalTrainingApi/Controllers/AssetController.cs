@@ -1,7 +1,9 @@
 ﻿using AngularTechnicalTrainingApi.Data.GenericRepository;
+using AngularTechnicalTrainingApi.Domain.Models;
 using AngularTechnicalTrainingApi.Dto;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AngularTechnicalTrainingApi.Controllers
 {
@@ -21,7 +23,7 @@ namespace AngularTechnicalTrainingApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAssets()
         {
-            var assets = await _unitOfWork.Assets.GetAll();
+            var assets = await _unitOfWork.Assets.GetAll(include: q => q.Include(x => x.Employee).Include(x => x.AssetType));
             var results = _mapper.Map<IList<AssetDTO>>(assets);
             return Ok(results);
         }
