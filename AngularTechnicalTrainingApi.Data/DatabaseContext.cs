@@ -17,6 +17,7 @@ namespace AngularTechnicalTrainingApi.Data
         {
             modelBuilder.ApplyConfiguration(new AssetTypeConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+            modelBuilder.ApplyConfiguration(new AssetConfiguration());
         }
 
 

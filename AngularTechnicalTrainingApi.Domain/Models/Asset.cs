@@ -27,6 +27,6 @@ namespace AngularTechnicalTrainingApi.Domain.Models
 
         public bool Retired { get; set; }
 
-        public DateTime DateRetired { get; set; }
+        public DateTime? DateRetired { get; set; }
     }
 }

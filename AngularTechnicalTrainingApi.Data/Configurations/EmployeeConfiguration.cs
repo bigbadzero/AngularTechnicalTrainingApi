@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AngularTechnicalTrainingApi.Data
+namespace AngularTechnicalTrainingApi.Data.Configurations
 {
     public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
     {
