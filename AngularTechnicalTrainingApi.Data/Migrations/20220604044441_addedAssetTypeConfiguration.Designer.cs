@@ -4,6 +4,7 @@ using AngularTechnicalTrainingApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AngularTechnicalTrainingApi.Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220604044441_addedAssetTypeConfiguration")]
+    partial class addedAssetTypeConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,38 +73,6 @@ namespace AngularTechnicalTrainingApi.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AssetTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Desktop"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Laptop"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Display"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Phone"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "External Hard Drive"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Other"
-                        });
                 });
 
             modelBuilder.Entity("AngularTechnicalTrainingApi.Domain.Models.Employee", b =>
