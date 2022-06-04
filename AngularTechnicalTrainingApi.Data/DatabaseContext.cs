@@ -16,6 +16,7 @@ namespace AngularTechnicalTrainingApi.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AssetTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
         }
 
 
