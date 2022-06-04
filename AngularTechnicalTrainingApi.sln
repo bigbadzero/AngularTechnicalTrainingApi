@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularTechnicalTrainingApi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularTechnicalTrainingApi.Data", "AngularTechnicalTrainingApi.Data\AngularTechnicalTrainingApi.Data.csproj", "{C4CC8B39-4FE6-442A-B60C-28ECC16EFB16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularTechnicalTrainingApi.Dto", "AngularTechnicalTrainingApi.Dto\AngularTechnicalTrainingApi.Dto.csproj", "{007AD478-4F83-4ED9-B912-BD953EB5CBF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C4CC8B39-4FE6-442A-B60C-28ECC16EFB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4CC8B39-4FE6-442A-B60C-28ECC16EFB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4CC8B39-4FE6-442A-B60C-28ECC16EFB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{007AD478-4F83-4ED9-B912-BD953EB5CBF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007AD478-4F83-4ED9-B912-BD953EB5CBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007AD478-4F83-4ED9-B912-BD953EB5CBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007AD478-4F83-4ED9-B912-BD953EB5CBF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
