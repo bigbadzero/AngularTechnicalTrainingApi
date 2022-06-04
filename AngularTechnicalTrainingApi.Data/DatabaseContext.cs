@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace AngularTechnicalTrainingApi.Data
 {
-    public class DatabaseContext: DbContext
+    public class DatabaseContext : DbContext
     {
-        public  DatabaseContext(DbContextOptions options): base(options)
-    {}
-    DbSet<AssetType> AssetTypes { get; set; }
-    DbSet<Employee> Employees { get; set; }
-    DbSet<Asset> Assets { get; set; }
-}
-    
+        public DatabaseContext(DbContextOptions options) : base(options) { }
+
+        DbSet<AssetType> AssetTypes { get; set; }
+        DbSet<Employee> Employees { get; set; }
+        DbSet<Asset> Assets { get; set; }
+
+    }
+
 
 }
