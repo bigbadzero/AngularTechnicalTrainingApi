@@ -3,6 +3,7 @@ using AngularTechnicalTrainingApi.Data.Configurations;
 using AngularTechnicalTrainingApi.Data.GenericRepository;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,10 @@ var connectionString = builder.Configuration.GetConnectionString("sqlConnection"
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(op =>
+                op.SerializerSettings.ReferenceLoopHandling =
+                    ReferenceLoopHandling.Ignore);
+
 
 var config = new MapperConfiguration(cfg =>
 {
