@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace AngularTechnicalTrainingApi.Dto
 {
-    public class AssetDTO
+    public class NewAssetDTO
     {
-        [Required]
         public int TagID { get; set; }
 
         [Required]
@@ -23,7 +22,6 @@ namespace AngularTechnicalTrainingApi.Dto
         public int EmployeeID { get; set; }
         public Employee Employee { get; set; }
 
-        [Required]
         public DateTime DateAdded { get; set; }
 
         public bool Retired { get; set; }

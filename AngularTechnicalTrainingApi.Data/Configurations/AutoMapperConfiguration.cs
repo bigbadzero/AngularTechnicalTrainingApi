@@ -16,6 +16,7 @@ namespace AngularTechnicalTrainingApi.Data.Configurations
             CreateMap<Asset, AssetDTO>().ReverseMap();
             CreateMap<AssetType, AssetTypeDTO>().ReverseMap();
             CreateMap<Employee, EmployeeDTO>().ReverseMap();
+            CreateMap<NewAssetDTO, Asset>().ReverseMap();
         }
     }
 }
