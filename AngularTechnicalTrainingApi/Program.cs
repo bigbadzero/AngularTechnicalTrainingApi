@@ -16,6 +16,14 @@ builder.Services.AddControllers().AddNewtonsoftJson(op =>
                 op.SerializerSettings.ReferenceLoopHandling =
                     ReferenceLoopHandling.Ignore);
 
+builder.Services.AddCors(c => {
+    c.AddPolicy("AllowAll", builder =>
+        builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+
+});
+
 
 var config = new MapperConfiguration(cfg =>
 {
@@ -42,6 +50,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowAll");
 
 
 app.UseHttpsRedirection();
