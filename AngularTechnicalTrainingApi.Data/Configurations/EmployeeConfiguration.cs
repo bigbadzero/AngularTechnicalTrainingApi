@@ -18,15 +18,13 @@ namespace AngularTechnicalTrainingApi.Data.Configurations
                 {
                     Id = 1,
                     Name = "Admin1",
-                    Email = "Admin1@gmail.com",
-                    Password = "Admin1Password!"
+                    Email = "Admin1@gmail.com"
                 },
                 new Employee
                 {
                     Id = 2,
                     Name = "Admin2",
-                    Email = "Admin2@gmail.com",
-                    Password = "Admin2Password!"
+                    Email = "Admin2@gmail.com"
                 }
                 );
         }
