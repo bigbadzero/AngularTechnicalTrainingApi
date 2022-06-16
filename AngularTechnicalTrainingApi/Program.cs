@@ -1,6 +1,7 @@
 using AngularTechnicalTrainingApi.Data;
 using AngularTechnicalTrainingApi.Data.Configurations;
 using AngularTechnicalTrainingApi.Data.GenericRepository;
+using AngularTechnicalTrainingApi.Dto;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -36,6 +37,7 @@ builder.Services.AddSingleton(mapper);
 
 //dependency injections
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddTransient<AssetDialogOptionsDTO>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
