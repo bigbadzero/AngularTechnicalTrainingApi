@@ -54,6 +54,15 @@ namespace AngularTechnicalTrainingApi.Controllers
             return Ok(results);
         }
 
+        [HttpGet]
+        [Route("EmployeeAssets/{employeeId:int}")]
+        public async Task<IActionResult> GetAssetsByEmployeeId(int employeeId)
+        {
+            var assets = await _unitOfWork.Assets.GetAll(q => q.EmployeeID == employeeId && q.Retired != true, include: q => q.Include(x => x.Employee).Include(x => x.AssetType));
+            var results = _mapper.Map<IList<AssetDTO>>(assets);
+            return Ok(results);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateAsset([FromBody] NewAssetDTO newAssetDTO)
         {
@@ -81,6 +90,11 @@ namespace AngularTechnicalTrainingApi.Controllers
                 if(asset == null)
                 {
                     return BadRequest("Invalid update");
+                }
+                if (assetDTO.Retired)
+                {
+                    assetDTO.DateRetired = DateTime.Now;
+
                 }
                 _mapper.Map(assetDTO, asset);
                 _unitOfWork.Assets.Update(asset);
