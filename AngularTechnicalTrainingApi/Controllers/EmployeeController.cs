@@ -27,7 +27,7 @@ namespace AngularTechnicalTrainingApi.Controllers
             return Ok(results);
         }
 
-        [HttpGet("{id: int", Name = "GetEmployeeById")]
+        [HttpGet("{id:int}", Name = "GetEmployeeById")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
             var employee = await _unitOfWork.Employees.Get(q => q.Id == id);
