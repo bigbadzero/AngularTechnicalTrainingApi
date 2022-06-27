@@ -25,5 +25,30 @@ namespace AngularTechnicalTrainingApi.Controllers
             var results = _mapper.Map<IList<EmployeeDTO>>(employees);
             return Ok(results);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateEmployee([FromBody]EmployeeDTO employeeDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                var employee = await _unitOfWork.Employees.Get(q => q.Id == employeeDTO.Id);
+                if(employee == null)
+                {
+                    return BadRequest("Invalid Employee");
+                }
+                _mapper.Map(employeeDTO, employee);
+                _unitOfWork.Employees.Update(employee);
+                await _unitOfWork.Save();
+
+                return NoContent();
+
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+            
+            
+        }
     }
 }
