@@ -1,4 +1,5 @@
 ﻿using AngularTechnicalTrainingApi.Data.GenericRepository;
+using AngularTechnicalTrainingApi.Domain.Models;
 using AngularTechnicalTrainingApi.Dto;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,14 @@ namespace AngularTechnicalTrainingApi.Controllers
             return Ok(results);
         }
 
+        [HttpGet("{id: int", Name = "GetEmployeeById")]
+        public async Task<IActionResult> GetEmployeeById(int id)
+        {
+            var employee = await _unitOfWork.Employees.Get(q => q.Id == id);
+            var result = _mapper.Map<EmployeeDTO>(employee);
+            return Ok(result);
+        }
+
         [HttpPut]
         public async Task<IActionResult> UpdateEmployee([FromBody]EmployeeDTO employeeDTO)
         {
@@ -41,14 +50,28 @@ namespace AngularTechnicalTrainingApi.Controllers
                 await _unitOfWork.Save();
 
                 return NoContent();
-
             }
             else
             {
                 return BadRequest(ModelState);
             }
-            
-            
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateEmployee([FromBody] NewEmployeeDTO employeeDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                var employee = _mapper.Map<Employee>(employeeDTO);
+                await _unitOfWork.Employees.Insert(employee);
+                await _unitOfWork.Save();
+
+                return CreatedAtRoute("GetEmployeeById", new { id = employee.Id }, employee);
+            }
+            else
+            {
+                return BadRequest("Invalid Update");
+            }
         }
     }
 }
