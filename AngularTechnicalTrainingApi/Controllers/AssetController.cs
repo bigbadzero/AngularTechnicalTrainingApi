@@ -72,7 +72,6 @@ namespace AngularTechnicalTrainingApi.Controllers
                 await _unitOfWork.Assets.Insert(asset);
                 await _unitOfWork.Save();
                 return CreatedAtRoute("GetAssetByAssetTag", new { tagId = asset.TagID }, asset);
-
             }
             else
             {
