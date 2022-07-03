@@ -23,7 +23,7 @@ namespace AngularTechnicalTraining.MediatR.Handlers.Assets
 
         public Task<Asset> Handle(CreateAssetCommand request, CancellationToken cancellationToken)
         {
-            
+            return null;
         }
     }
 }
