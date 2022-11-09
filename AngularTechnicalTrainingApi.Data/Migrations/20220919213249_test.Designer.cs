@@ -4,6 +4,7 @@ using AngularTechnicalTrainingApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AngularTechnicalTrainingApi.Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220919213249_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,6 +50,9 @@ namespace AngularTechnicalTrainingApi.Data.Migrations
                     b.Property<bool>("Retired")
                         .HasColumnType("bit");
 
+                    b.Property<int>("testing")
+                        .HasColumnType("int");
+
                     b.HasKey("TagID");
 
                     b.HasIndex("AssetTypeID");
@@ -61,37 +66,41 @@ namespace AngularTechnicalTrainingApi.Data.Migrations
                         {
                             TagID = 1,
                             AssetTypeID = 1,
-                            DateAdded = new DateTime(2022, 11, 9, 9, 7, 59, 73, DateTimeKind.Local).AddTicks(6552),
+                            DateAdded = new DateTime(2022, 9, 19, 16, 32, 49, 546, DateTimeKind.Local).AddTicks(1779),
                             Description = "Desktop assigned to Admin1",
                             EmployeeID = 1,
-                            Retired = false
+                            Retired = false,
+                            testing = 0
                         },
                         new
                         {
                             TagID = 2,
                             AssetTypeID = 2,
-                            DateAdded = new DateTime(2022, 11, 9, 9, 7, 59, 73, DateTimeKind.Local).AddTicks(6591),
+                            DateAdded = new DateTime(2022, 9, 19, 16, 32, 49, 546, DateTimeKind.Local).AddTicks(1819),
                             Description = "Standard Laptop assigned to Admin1",
                             EmployeeID = 1,
-                            Retired = false
+                            Retired = false,
+                            testing = 0
                         },
                         new
                         {
                             TagID = 3,
                             AssetTypeID = 1,
-                            DateAdded = new DateTime(2022, 11, 9, 9, 7, 59, 73, DateTimeKind.Local).AddTicks(6593),
+                            DateAdded = new DateTime(2022, 9, 19, 16, 32, 49, 546, DateTimeKind.Local).AddTicks(1821),
                             Description = "Standard Desktop assigned to Admin2",
                             EmployeeID = 2,
-                            Retired = false
+                            Retired = false,
+                            testing = 0
                         },
                         new
                         {
                             TagID = 4,
                             AssetTypeID = 2,
-                            DateAdded = new DateTime(2022, 11, 9, 9, 7, 59, 73, DateTimeKind.Local).AddTicks(6595),
+                            DateAdded = new DateTime(2022, 9, 19, 16, 32, 49, 546, DateTimeKind.Local).AddTicks(1824),
                             Description = "Standard Laptop assigned to Admin2",
                             EmployeeID = 2,
-                            Retired = false
+                            Retired = false,
+                            testing = 0
                         });
                 });
 

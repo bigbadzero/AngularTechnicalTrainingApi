@@ -25,9 +25,10 @@ namespace AngularTechnicalTrainingApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllActiveAssets()
         {
-            var assets = await _unitOfWork.Assets.GetAll(q => q.Retired != true,include: q => q.Include(x => x.Employee).Include(x => x.AssetType));
+            var assets = await _unitOfWork.Assets.GetAll(q => q.Retired != true, include: q => q.Include(x => x.Employee).Include(x => x.AssetType));
             var results = _mapper.Map<IList<AssetDTO>>(assets);
             return Ok(results);
+            
         }
 
         [HttpGet]
